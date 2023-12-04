@@ -63,10 +63,11 @@ function Todo() {
       </div>
       <div className="todos">
         <ol className="todoItems">
-          {todos[selectedDate.toISOString().split('T')[0]]?.map((todo) => (
+          {todos[selectedDate.toISOString().split('T')[0]]?.map((todo,i) => (
             <li key={todo.id}>
+            <b>{i+1}.</b>
               {todo.title}
-              <button onClick={() => handleDeleteTodo(selectedDate.toISOString().split('T')[0], todo.id)}>Delete</button>
+              <button className="delete" onClick={() => handleDeleteTodo(selectedDate.toISOString().split('T')[0], todo.id)}>Delete</button>
             </li>
           ))}
         </ol>
